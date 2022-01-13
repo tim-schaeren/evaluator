@@ -1,7 +1,10 @@
-# Barebones React App
+# Evaluator
 
-Just wanted a simple barebones React application boilerplate that:
+This app let's you evaluate your current internationalization strategy and gives you some simple feedback on it.
 
+It's built on the barebones-react-app project provided by niftymonkey.
+
+It:
 - Can transpile
   - Specifically because JSX
   - But also so you can use the latest JavaScript features
@@ -18,9 +21,8 @@ Just wanted a simple barebones React application boilerplate that:
 ## Getting Started
 
 1. `npm install` - to install the dependencies
-1. `npm run dev` - to run the application in dev mode (using webpack-dev-server)
-1. Open up http://localhost:3000 to view the app
-1. Open up `src/App.js` and hack away. Hit save and enjoy the magic!
+2. `npm run dev` - to run the application in dev mode (using webpack-dev-server)
+3. Open up http://localhost:3000 to view the app
 
 ## Other useful commands
 
