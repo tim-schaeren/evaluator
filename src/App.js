@@ -13,14 +13,13 @@ const App = () => {
   //This is where our actual page lives
   return (
   <div className="container">
-    <Header
-    onAdd={() => setShowForm(!showForm)}
-    showForm={showForm}
-    title='Let&apos;s talk about internationalization strategy, shall we?'
-    />
 
-    {showForm ?
-    <Form onAdd='' /> : '' }
+    {/*Display the welcome header*/}
+    {/*If showForm is true, we display the form, otherwise we display nothing */}
+
+    <Header
+    onShowForm={() => setShowForm(!showForm)}  showForm={showForm} title='Let&apos;s talk about internationalization strategy, shall we?'/>
+    {showForm ?<Form onShowForm='' /> : '' }
   </div>
     )
 }

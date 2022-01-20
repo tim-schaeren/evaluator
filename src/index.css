@@ -25,6 +25,20 @@ body {
 	margin-bottom: 20px;
 }
 
+.Overlay {
+	background: lightgrey;
+	padding: 100px;
+	width: 100%;
+}
+
+.OverlayHeader {
+	margin-bottom: 2rem;
+}
+
+.OverlayBody {
+	margin-bottom: 2rem;
+}
+
 .btn {
 	display: inline-block;
 	background: #000;
