@@ -10,6 +10,7 @@ const Header = ({title, onShowForm, showForm}) => {
         <header className='header'>
             <h1>{title}</h1>
             {showForm ? '' : <Button text='Go!' color='green' onClick={onShowForm}/>}
+           
         </header>
     )
 }

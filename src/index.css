@@ -103,20 +103,28 @@ body {
 	font-size: 17px;
 }
 
-.form-control-check {
+.form-control-radio {
 	display: flex;
+	width: 50%;
 	align-items: center;
-	justify-content: space-between;
+
 }
 
-.form-control-check label {
-	flex: 1;
+.form-control-radio label {
+	width: 50%;
+	font-weight: "1000";
 }
 
 .form-control-check input {
 	flex: 2;
 	height: 20px;
 }
+
+.form-control-range {
+	display: block;
+	width: 80%;
+	margin-left: 120px;
+  }
 
 footer {
 	margin-top: 30px;
