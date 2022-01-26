@@ -1,7 +1,7 @@
 {
   "name": "barebones-react-app",
   "version": "1.0.0",
-  "description": "Just the basics to get a React App running with JSX",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --mode development",

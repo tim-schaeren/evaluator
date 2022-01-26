@@ -46,37 +46,49 @@
      return (
 
     <div>
+        <form className='add-form'>
 
        {showResults ? <Overlay className='Overlay' open={open} onClose={() => setIsOpen(false)}>
-                <h1 className='OverlayHeader'>Your Results</h1>
+                <hr size='10'color='black' ></hr>
+                <br></br>
+                <h1 className='OverlayHeader'>Results: Part 1</h1>
+                <h2 className='OverlayHeader'>Here we look at the facts you provided and what kind of strategic orientation you chose</h2>
+                <hr size='10'color='black' ></hr>
+                <br></br>
+                <h3>
+                    Here's what we know:
+                </h3>
+                <br></br>
                 <p>
-                    Alright, here's what we know:
+                    1. You want to try and sell <u>{product}</u> in <u>{market}</u>.{'\n'}
                 </p>
                 <br></br>
                 <p>
-                    1. You want to try and sell <b>{product}</b> in <b>{market}</b>.{'\n'}
+                    2. You have a <u>{isProductStandardized=="true" ? 'standardized ' : 'non-standardized '}</u>Product.{'\n'}
                 </p>
                 <br></br>
                 <p>
-                    2. You want to achieve this by using the strategies{'\n'}
+                    3. You chose these strategic pillars:{'\n'}
                 </p>
+                <br></br>
                 {target1>0 ?   
-                <h2 style={{color: "#00FFFF"}}>Aggregation</h2>
+                <h2 style={{color: "#00008B"}}>Aggregation</h2>
                 : ''}
                 {target2>0 ?
-                <h2 style={{color: "#7FFFD4"}}>Arbitrage</h2>
+                <h2 style={{color: "#1E90FF"}}>Arbitrage</h2>
                 : ''}
                 {target3>0 ?
-                <h2 style={{color: "#0000FF"}}>Adaption</h2>
+                <h2 style={{color: "#0000FF"}}>Adaptation</h2>
                 : ''}
+                <br></br>
                 <p>
                     as follows: {'\n'}
                 </p>
                 <PieChart totalValue={target1+target2+target3} animate={true} radius={30}
                     data={[
-                        { title: 'Aggregation', value: target1, color: '#00FFFF'},
-                        { title: 'Arbitrage', value: target2, color: '#7FFFD4' },
-                        { title: 'Adaption', value: target3, color: '#0000FF' },
+                        { title: 'Aggregation', value: target1, color: '#00008B'},
+                        { title: 'Arbitrage', value: target2, color: '#1E90FF' },
+                        { title: 'Adaptation', value: target3, color: '#0000FF' },
                     ]}
                     label={({ dataEntry }) => `${Math.round(dataEntry.percentage)} %`}
                     labelStyle={{
@@ -85,10 +97,10 @@
                         fill: 'white',
                       }}
                 /> 
+                <hr size='10'color='black' ></hr>
                 <br></br>
-                <p>
-                    Next, let's analyze your strategy:
-                </p>
+                <h1 className='OverlayHeader'>Part 2</h1>
+                <h2 className='OverlayHeader'>These are our thoughts on the way you plan to implement your strategy </h2>
                 <br></br>
 
 
@@ -103,7 +115,7 @@
         {target1 > 0 && target2 > 0 && target3 > 0 ?   
              <div>
                 <h3 style={{color: "red"}}>
-                    Rough start!
+                    Watch out!
                 </h3>
                 <p>
                     You chose to go with all three strategies at once.
@@ -163,7 +175,7 @@
                     Perfectly digitized!
                 </h3>
                 <p>
-                    You indicated that your company has a high level of digital maturity.
+                    You indicated that your company is digitally transformed.
                     This will make your life considerably easier when internationalizing.
                 </p>
                 <br></br>
@@ -213,10 +225,10 @@
              {percentage(target1,(target1+target2+target3)) >= 50 && isProductStandardized == "false" ?   
              <div>
                 <h3 style={{color: "Red"}}>
-                    Scaling custom is hard!
+                    Scaling non-standard products is hard!
                 </h3>
                 <p>
-                    You indicated that your product is custom-made and your strategy leans towards aggregation.
+                    You indicated that your product is non-standardized and your strategy leans towards aggregation.
                     This is not advisable since you will not be able to scale custom-made products.
                 </p>
                 <br></br>
@@ -226,24 +238,24 @@
             {percentage(target2,(target1+target2+target3)) >= 50 && isProductStandardized == "false" ?   
              <div>
                 <h3 style={{color: "Green"}}>
-                    Specialising custom is easier!
+                    Specialising non-standard products is easier!
                 </h3>
                 <p>
-                    You indicated that your product is custom-made and your strategy leans towards arbitrage.
-                    Arbitrage favours custom-made products since it's much easier to specialise these products.
+                    You indicated that your product is non-standardized and your strategy leans towards arbitrage.
+                    Arbitrage favours adapted products since it's much easier to specialise these products.
                 </p>
                 <br></br>
                 </div> : ''}
 
-            {/* HAVING A CUSTOM-MADE PRODUCT AND USING ADAPTION*/}
+            {/* HAVING A CUSTOM-MADE PRODUCT AND USING ADAPTATION*/}
             {percentage(target3,(target1+target2+target3)) >= 50 && isProductStandardized == "false" ?   
              <div>
                 <h3 style={{color: "Green"}}>
                     Custom-made just for your new market!
                 </h3>
                 <p>
-                    You indicated that your product is custom-made and your strategy leans towards adaption.
-                    Arbitrage favours custom-made products since it's much easier to focus on national preferences with these products.
+                    You indicated that your product is non-standardized and your strategy leans towards adaptation.
+                    Arbitrage favours non-standardized products since it's much easier to adapt to national preferences with these products.
                 </p>
                 <br></br>
                 </div> : ''}
@@ -278,8 +290,8 @@
                     Adapting to the market you want to conquer!
                 </h3>
                 <p>
-                    You are willing to make significant changes your product and you lean towards Adaption. 
-                    Adaption tries to achieve local relevance through national focus, so this is a good fit!
+                    You are willing to make significant changes your product and you lean towards Adaptation. 
+                    Adaptation tries to achieve local relevance through national focus, so this is a good fit!
                 </p>
                 <br></br>
                 </div> :
@@ -311,8 +323,8 @@
                     Sometimes we need to change!
                 </h3>
                 <p>
-                    You lean towards Adaption but you indicated that you are not planning on making significant changes to your product. 
-                    Adaption tries to achieve local relevance through national focus, so this might not be a good fit!
+                    You lean towards Adaptation but you indicated that you are not planning on making significant changes to your product. 
+                    Adaptation tries to achieve local relevance through national focus, so this might not be a good fit!
                 </p>
                 <br></br>
                 </div> :
@@ -325,7 +337,7 @@
                     Economies of YAY!
                 </h3>
                 <p>
-                    You are planning to increase your production volume by a large amount and you lean towards Aggregation. 
+                    You are expecting to increase your production volume by a large amount and you lean towards Aggregation. 
                     Aggregation tries to achieve economies of scale, so this is a good fit!
                 </p>
                 <br></br>
@@ -336,7 +348,7 @@
                     We don't always need more!
                 </h3>
                 <p>
-                    You are willing to increase your production volume slightly and you lean towards Arbitrage. 
+                    You are expecting to increase your production volume slightly and you lean towards Arbitrage. 
                     Arbitrage tries to achieve absolute economies through international specialisation not through scale, so this is a good fit!
                 </p>
                 <br></br>
@@ -347,8 +359,8 @@
                     Let's make more stuff!
                 </h3>
                 <p>
-                    You are willing to moderately increase your production volume and you lean towards Adaption. 
-                    Adaption often requires a moderate increase in production volume, so this is a good fit!
+                    You are expecting to moderately increase your production volume and you lean towards Adaptation. 
+                    Adaptation often requires a moderate increase in production volume, so this is a good fit!
                 </p>
                 <br></br>
                 </div> :
@@ -358,8 +370,8 @@
                     We need to make more stuff!
                 </h3>
                 <p>
-                    You lean towards Aggregation but you indicated that you are not planning on increasing your production volume by a large amount. 
-                    Aggregation tries to achieve scale, so this might not be a good fit!
+                    You lean towards Aggregation but you indicated that you are not expecting a large increase in your production volume. 
+                    Aggregation tries to achieve economies of scale, so this might not be a good fit!
                 </p>
                 <br></br>
                 </div> :
@@ -369,7 +381,7 @@
                     Step on the production-brakes!
                 </h3>
                 <p>
-                    You clean towards Arbitrage but you indicated that you are planning on increasing your production volume by a large amount. 
+                    You clean towards Arbitrage but you indicated that you are expecting an increase in your production volume by a large amount. 
                     Arbitrage tries to achieve absolute economies through international specialisation, so this might not be a good fit!
                 </p>
                 <br></br>
@@ -380,8 +392,8 @@
                     We might need more product!
                 </h3>
                 <p>
-                    You lean towards Adaption but you indicated that you are planning on only increasing your production volumes slightly. 
-                    Adaption often requires a moderate increase in production volume, so this might not be a good fit!
+                    You lean towards Adaptation but you indicated that you are expecting only a slight increase in your production volume. 
+                    Adaptation often requires a moderate increase in production volume, so this might not be a good fit!
                 </p>
                 <br></br>
                 </div> :
@@ -395,7 +407,7 @@
                     Well done!
                 </h3>
                 <p>
-                    You are planning to be efficient through standardization and you lean towards Aggregation. 
+                    You are expecting a reduction in cost per unit and you lean towards Aggregation. 
                     Aggregation tries to achieve economies of scale, so this is a good fit!
                 </p>
                 <br></br>
@@ -406,7 +418,7 @@
                     Well done!
                 </h3>
                 <p>
-                    You picked the arbitrage answer and you lean towards Arbitrage. 
+                    You are expecting an increase in cost per unit and you lean towards Arbitrage. 
                     This is a good fit!
                 </p>
                 <br></br>
@@ -417,7 +429,7 @@
                     Well done!
                 </h3>
                 <p>
-                    You picked the adaption answer and you lean towards Adaption. 
+                    You are not expecting a change in cost per unit and you lean towards Adaptation. 
                     This is a good fit!
                 </p>
                 <br></br>
@@ -428,7 +440,7 @@
                     Watch out!
                 </h3>
                 <p>
-                    You lean towards Aggregation but you chose a different answer. 
+                    You lean towards Aggregation but you are not expecting a reduction in cost per unit. 
                     This might not be a good fit!
                 </p>
                 <br></br>
@@ -439,7 +451,7 @@
                     Watch out!
                 </h3>
                 <p>
-                    You lean towards Arbitrage but you chose a different answer. 
+                    You lean towards Arbitrage but you are not expecting an increase in cost per unit. 
                     This might not be a good fit!
                 </p>
                 <br></br>
@@ -450,7 +462,7 @@
                     We might need more product!
                 </h3>
                 <p>
-                    You lean towards Adaption but you chose a different answer. 
+                    You lean towards Adaptation but you are expecting a change in cost per unit. 
                     This might not be a good fit!
                 </p>
                 <br></br>
@@ -458,14 +470,14 @@
                 
                 ''}
 
-            {/* ORGANISATIONAL STRUCTURE */} {/*1= aggregation 2= adaptation  3= arbitrage */}
+            {/* Willingness to pay */} {/*1= aggregation 2= adaptation  3= arbitrage */}
             {percentage(target1,(target1+target2+target3)) >= 50 && score4=="1"  ?   
             <div>
                 <h3 style={{color: "Green"}}>
-                    Local is great!
+                    Prices are going up!
                 </h3>
                 <p>
-                    You are planning to organise your operations by business region or customer and you lean towards Aggregation. 
+                    You are expecting customers to pay a higher price and you lean towards Aggregation. 
                     This is a good fit!
                 </p>
                 <br></br>
@@ -473,10 +485,10 @@
                 percentage(target3,(target1+target2+target3)) >= 50 && score4=="2"  ?
                 <div>
                 <h3 style={{color: "Green"}}>
-                    Organise by country!
+                    Prices are going down!
                 </h3>
                 <p>
-                    You are planning to organise your operations by country and you lean towards Adaptation. 
+                    You are expecting customers to pay a lower price and you lean towards Adaptation. 
                     This is a good fit!
                 </p>
                 <br></br>
@@ -484,10 +496,10 @@
                 percentage(target2,(target1+target2+target3)) >= 50 && score4=="3"  ?
                 <div>
                 <h3 style={{color: "Green"}}>
-                    Organising by function!
+                    Buy all the things!
                 </h3>
                 <p>
-                    You are planning to organise your operations by function and you lean towards Arbitrage. 
+                    You are expecting customers to buy more at the same price and you lean towards Arbitrage. 
                     This is a good fit!
                 </p>
                 <br></br>
@@ -495,10 +507,10 @@
                 percentage(target1,(target1+target2+target3)) >= 50 && score4!="1"  ?
                 <div>
                 <h3 style={{color: "Orange"}}>
-                    Ouch!
+                    Watch out!
                 </h3>
                 <p>
-                    You lean towards Aggregation but you indicated that you are not planning to organise your operations by business region or customer. 
+                    You lean towards Aggregation but you indicated that you are not expecting customers to pay a higher price. 
                     This might not be a good fit!
                 </p>
                 <br></br>
@@ -509,7 +521,7 @@
                     Watch out!
                 </h3>
                 <p>
-                    You lean towards Arbitrage but you indicated that you are not planning to organise your operations by country.
+                    You lean towards Arbitrage but you indicated that you are not expecting customers to buy more product.
                     This might not be a good fit!
                 </p>
                 <br></br>
@@ -517,11 +529,11 @@
                 percentage(target2,(target1+target2+target3)) >= 50 && score4!="3"  ?
                 <div>
                 <h3 style={{color: "Orange"}}>
-                    We might need more product!
+                    Watch out!
                 </h3>
                 <p>
-                    You lean towards Adaption but you indicated that you are planning on only increasing your production volumes slightly. 
-                    Adaption often requires a moderate increase in production volume, so this might not be a good fit!
+                    You lean towards Adaptation but you indicated that you are not expecting customers to pay a lower price. 
+                    This might not be a good fit!
                 </p>
                 <br></br>
                 </div> :
@@ -531,9 +543,13 @@
 
 
 
+                <hr size='10'color='black' ></hr>
+                <br></br>
+                <Button text='Go Again!' color='green' onClick={() => location.reload()}/>
                 
-                <Button text='Go Back' color='green' onClick={() => location.reload()}/>
         </Overlay> : ''}
+
+        </form>
 
          <form className='add-form' onSubmit={onSubmit}>
 
@@ -560,7 +576,7 @@
             <br></br>
 
             <div className='question'>
-                <label>Is your product standardized or custom-made?</label>
+                <label>Is your product standardized or do you adapt it to different markets?</label>
             </div>
 
             <br></br>
@@ -571,7 +587,7 @@
             <input type='radio' value={true} name="isStandardized" onChange={(e) => setProductStandardized(e.currentTarget.value)} />
             </div>
             <div className='form-control form-control-radio'>
-            <label>custom-made</label>
+            <label>adapted to markets</label>
             <input type='radio' value={false} name="isStandardized" onChange={(e) => setProductStandardized(e.currentTarget.value)} />
             </div>
 
@@ -592,7 +608,7 @@
             <input type='radio' value="2" name="maturityLevel" onChange={(e) => setMaturityLevel(e.currentTarget.value)} />
             </div>
             <div className='form-control form-control-radio'>
-            <label>completely digitalized</label>
+            <label>digitally transformed</label>
             <input type='radio' value="3" name="maturityLevel" onChange={(e) => setMaturityLevel(e.currentTarget.value)} />
             </div>
 
@@ -606,17 +622,20 @@
 
             <br></br>
 
-            <label>To achieve scale and scope economies through international standardization(aggreg)</label> {/* Aggregation */}
+            <h3>To achieve scale and scope economies through international standardization</h3> {/* Aggregation */}
+            <label>by selling an unchanged product into all markets</label>
             <div className='form-control form-control-range'>
                <input type='range' min="0" max="10" defaultValue="0" onChange={(e) => setTarget1(e.currentTarget.valueAsNumber)} />
             </div>
 
-            <label>To achieve absolute economies through international specialisation(arbi)</label> {/* Arbitrage */}
+            <h3>To achieve absolute economies through international specialisation</h3> {/* Arbitrage */}
+            <label>by taking advantage of the uniqueness of switzerland as your starting country</label>
             <div className='form-control form-control-range'>
                <input type='range' min="0" max="10" defaultValue="0" onChange={(e) => setTarget2(e.currentTarget.valueAsNumber)} />
             </div>
 
-            <label>Achieving local relevance through national focus(adapt) </label> {/* Adaptation */}
+            <h3>To increase customer willingness to pay for your product</h3> {/* Adaptation */}
+            <label>by adapting your product to local market preferences</label>
             <div className='form-control form-control-range'>
                <input type='range' min="0" max="10" defaultValue="0" onChange={(e) => setTarget3(e.currentTarget.valueAsNumber)} />
             </div>
@@ -642,73 +661,56 @@
             <br></br>
 
             <div className='question'>
-                <label>By how much can you increase production volume?</label> {/*1= aggregation 2= adaptation  3= arbitrage  */}
+                <label>how do you expect your production volume to change (units produced)?</label> {/*1= aggregation 2= adaptation  3= arbitrage  */}
             </div>  
             <div className='form-control form-control-radio'>
             <label>Big increase</label>
             <input type='radio' value={1} name="score2" onChange={(e) => setScore2(e.currentTarget.value)} /> 
             </div>
             <div className='form-control form-control-radio'>
-            <label>Slight increase</label>
-            <input type='radio' value={2} name="score2" onChange={(e) => setScore2(e.currentTarget.value)} />
-            </div>
-            <div className='form-control form-control-radio'>
             <label>Moderate increase</label>
             <input type='radio' value={3} name="score2" onChange={(e) => setScore2(e.currentTarget.value)} />
             </div>
+            <div className='form-control form-control-radio'>
+            <label>Slight increase</label>
+            <input type='radio' value={2} name="score2" onChange={(e) => setScore2(e.currentTarget.value)} />
+            </div>
+            
 
             <br></br>
 
             <div className='question'>
-                <label>What is your cost strategy?</label> {/*1= aggregation 2= adaptation  3= arbitrage  */}
+                <label>how do you expect the strategy to affect your cost structure?</label> {/*1= aggregation 2= adaptation  3= arbitrage  */}
             </div> 
             <div className='form-control form-control-radio'>
-            <label>Efficiency through standardization</label>
+            <label>Reduction in cost per unit</label>
             <input type='radio' value={1} name="score3" onChange={(e) => setScore3(e.currentTarget.value)} /> 
             </div>
             <div className='form-control form-control-radio'>
-            <label>Adaption cost strategy</label>
+            <label>Increase in cost per unit</label>
             <input type='radio' value={2} name="score3" onChange={(e) => setScore3(e.currentTarget.value)} />
             </div>
             <div className='form-control form-control-radio'>
-            <label>Arbitrage cost strategy</label>
+            <label>Not at all</label>
             <input type='radio' value={3} name="score3" onChange={(e) => setScore3(e.currentTarget.value)} />
             </div>
 
             <br></br>
 
             <div className='question'>
-                <label>How should your operations be organised internationally?</label> {/*1= aggregation 2= adaptation  3= arbitrage  */}
+                <label>How do you expect the strategy to impact the willingness of the customer to pay?</label> {/*1= aggregation 2= adaptation  3= arbitrage  */}
             </div> 
             <div className='form-control form-control-radio'>
-            <label>By business region or customer</label>
+            <label>Customers will be willing to pay a higher price</label>
             <input type='radio' value={1} name="score4" onChange={(e) => setScore4(e.currentTarget.value)} /> 
             </div>
             <div className='form-control form-control-radio'>
-            <label>By country</label>
+            <label>Customers will expect a lower price</label>
             <input type='radio' value={2} name="score4" onChange={(e) => setScore4(e.currentTarget.value)} />
             </div>
             <div className='form-control form-control-radio'>
-            <label>By function</label>
+            <label>Customers will be willing to pay the same price, but buy more often</label>
             <input type='radio' value={3} name="score4" onChange={(e) => setScore4(e.currentTarget.value)} />
-            </div>
-
-            <br></br>
-
-            <div className='question'>
-                <label>Which of the following sounds suitable to you?</label> {/*1= aggregation 2= adaptation  3= arbitrage  */}
-            </div> 
-            <div className='form-control form-control-radio'>
-            <label>We are ready to standardize our product and prizing based on our clustering (regions)</label>
-            <input type='radio' value={1} name="score5" onChange={(e) => setScore5(e.currentTarget.value)} /> 
-            </div>
-            <div className='form-control form-control-radio'>
-            <label>Adaptation answer</label>
-            <input type='radio' value={2} name="score5" onChange={(e) => setScore5(e.currentTarget.value)} />
-            </div>
-            <div className='form-control form-control-radio'>
-            <label>We are ready to alter the price of our product in the new market</label>
-            <input type='radio' value={3} name="score5" onChange={(e) => setScore5(e.currentTarget.value)} />
             </div>
 
             <br></br>
