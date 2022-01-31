@@ -29,8 +29,6 @@
      const [score2, setScore2] = useState()
      const [score3, setScore3] = useState()
      const [score4, setScore4] = useState()
-     const [score5, setScore5] = useState()
-     const [score6, setScore6] = useState()
 
      //This happens when submitting the form
      const onSubmit = (e) => {
